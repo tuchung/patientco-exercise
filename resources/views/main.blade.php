@@ -7,16 +7,18 @@
 
         <title>Patientco - Social</title>
         {{-- script --}}
-        <script src="{{ asset('js/jquery.js') }}" defer></script>
-        {{-- <script src="{{ asset('js/semantic.js') }}" defer></script> --}}
-        <script src="{{ asset('js/manifest.js') }}" defer></script>
-        <script src="{{ asset('js/vendor.js') }}" defer></script>
+        <!-- <script src="{{ asset('js/jquery.js') }}" defer></script> -->
+        <!-- <script src="{{ asset('js/semantic.js') }}" defer></script> -->
+        <!-- <script src="{{ asset('js/manifest.js') }}" defer></script> -->
+        <!-- <script src="{{ asset('js/vendor.js') }}" defer></script> -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
         {{-- style --}}
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
-    <body id="app">
-        
+    <body>
+        <div id="app">
+            <app-div></app-div>
+        </div>
     </body>
 </html>
