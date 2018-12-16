@@ -1,4 +1,3 @@
-import ExampleComponent from './components/ExampleComponent'
 import Login from './components/login/Login'
 import Dashboard from './components/app/Dashboard'
 import UserRegistration from './components/login/Registration'
@@ -8,5 +7,4 @@ export default [
     // { path: '/userfeed', component: UserFeed },
     { path: '/login', component: Login },
     { path: '/login/register', component: UserRegistration },
-    { path: '/sample', component: ExampleComponent },
 ];
