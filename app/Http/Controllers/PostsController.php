@@ -23,10 +23,11 @@ class PostsController extends Controller
             //     $new_post->user_id = session('user_id');
             //     $new_post->save();
             // }
+            return response("success", 200);
+
         }catch(\Exception $e){
             return response($e, 500);
         }
-        return response($request, 200);
     }
 
     public function getPosts(Request $request)
@@ -45,7 +46,7 @@ class PostsController extends Controller
             }
             return response(\json_encode(['records' => $postsArray, 'pages' => $posts->lastPage()]));  
         }catch(\Exception $e){
-            return response($e);
+            return response($e, 500);
         }
     }
 
@@ -58,21 +59,20 @@ class PostsController extends Controller
             $model->save();
             return response("success", 200);  
         }catch(\Exception $e){
-            return response($e);
+            return response($e, 500);
         }
     }
 
 
     public function deletePost(Request $request)
     {
-                dd($request);
 
         try{
             $model = Posts::find($request->input('id'));
             $model->delete();
             return response("success", 200);  
         }catch(\Exception $e){
-            return response($e);
+            return response($e, 500);
         }
     }
 

@@ -21,7 +21,6 @@
                 });
             },
             checkAuthenticate: function(path){
-                console.log(path != "/login/register" && path != "/login");
                 if( path != "/login/register" && path != "/login"){
                     this.authenticate();
                 }

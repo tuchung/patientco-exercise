@@ -24,7 +24,7 @@ class LoginController extends Controller
             session(['user_id' => $model->id]);
 
         }catch(\Exception $e){
-            return response($e);
+            return response($e, 500);
         }
         return response('success', 200);
     }

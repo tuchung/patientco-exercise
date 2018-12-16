@@ -84051,128 +84051,17 @@ if (inBrowser && __webpack_provided_window_dot_Vue) {
 
 /* harmony default export */ __webpack_exports__["a"] = ([{ path: '/', component: __WEBPACK_IMPORTED_MODULE_2__components_app_Dashboard___default.a },
 // { path: '/userfeed', component: UserFeed },
-{ path: '/login', component: __WEBPACK_IMPORTED_MODULE_1__components_login_Login___default.a }, { path: '/login/register', component: __WEBPACK_IMPORTED_MODULE_3__components_login_Registration___default.a }, { path: '/sample', component: __WEBPACK_IMPORTED_MODULE_0__components_ExampleComponent___default.a }]);
+{ path: '/login', component: __WEBPACK_IMPORTED_MODULE_1__components_login_Login___default.a }, { path: '/login/register', component: __WEBPACK_IMPORTED_MODULE_3__components_login_Registration___default.a }, { path: '/sample', component: __WEBPACK_IMPORTED_MODULE_0__components_ExampleComponent__["default"] }]);
 
 /***/ }),
 /* 349 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var disposed = false
-var normalizeComponent = __webpack_require__(7)
-/* script */
-var __vue_script__ = __webpack_require__(350)
-/* template */
-var __vue_template__ = __webpack_require__(351)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/ExampleComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-299e239e", Component.options)
-  } else {
-    hotAPI.reload("data-v-299e239e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/home/tu/Desktop/patientco-exercise/resources/js/components/ExampleComponent.vue'");
 
 /***/ }),
-/* 350 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
-
-/***/ }),
-/* 351 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-299e239e", module.exports)
-  }
-}
-
-/***/ }),
+/* 350 */,
+/* 351 */,
 /* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -85321,7 +85210,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         pageChange: function pageChange(val) {
             this.page = val;
-            console.log(this.page);
             this.loadPost();
         },
         loadPost: function loadPost() {
@@ -90075,7 +89963,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         checkAuthenticate: function checkAuthenticate(path) {
-            console.log(path != "/login/register" && path != "/login");
             if (path != "/login/register" && path != "/login") {
                 this.authenticate();
             }

@@ -19,10 +19,11 @@ class RegisterController extends Controller
             $user->email = $request->input('email');
             $user->password = Hash::make($request->input('password'));
             $user->save();
+            return response("success", 200);
+
         }catch(\Exception $e){
-            return response($e);
+            return response($e, 500);
         }
-        return response($request, 200);
     }
 
 }

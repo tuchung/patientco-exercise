@@ -67,7 +67,6 @@
         methods: {
             pageChange(val){
                 this.page = val;
-                console.log(this.page);
                 this.loadPost();
             },
             loadPost(){
