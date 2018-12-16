@@ -16,13 +16,6 @@ class PostsController extends Controller
             $new_post->message = $request->input('message');
             $new_post->user_id = session('user_id');
             $new_post->save();
-
-            // for($i = 0; $i < 50; $i++){
-            //     $new_post = new Posts;
-            //     $new_post->message = $request->input('message');
-            //     $new_post->user_id = session('user_id');
-            //     $new_post->save();
-            // }
             return response("success", 200);
 
         }catch(\Exception $e){
