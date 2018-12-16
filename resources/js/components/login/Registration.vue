@@ -61,7 +61,7 @@
             </b-form-input>
         </b-form-group>
 
-        <b-button type="submit" variant="primary">Submit</b-button>
+        <b-button @click="submitForm" variant="primary">Submit</b-button>
         </b-form>
 
         </b-container>
@@ -112,11 +112,7 @@
                 axios.post('/register',vm.form)
                 .then(function(response) {
                     vm.$router.push({
-                        path:'/login',
-                        params: { 
-                            message : 'User successfully created.'
-                            },
-                        });
+                        path:'/login'});
                 })
                 .catch(error => {
                     vm.message = {

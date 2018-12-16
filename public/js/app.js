@@ -84046,7 +84046,7 @@ if (inBrowser && __webpack_provided_window_dot_Vue) {
 
 
 
-/* harmony default export */ __webpack_exports__["a"] = ([{ path: '/', component: __WEBPACK_IMPORTED_MODULE_1__components_app_Dashboard___default.a },
+/* harmony default export */ __webpack_exports__["a"] = ([{ path: '/dashboard', component: __WEBPACK_IMPORTED_MODULE_1__components_app_Dashboard___default.a }, { path: '/', component: __WEBPACK_IMPORTED_MODULE_0__components_login_Login___default.a },
 // { path: '/userfeed', component: UserFeed },
 { path: '/login', component: __WEBPACK_IMPORTED_MODULE_0__components_login_Login___default.a }, { path: '/login/register', component: __WEBPACK_IMPORTED_MODULE_2__components_login_Registration___default.a }]);
 
@@ -84244,19 +84244,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var vm = this;
             axios.post('/login', vm.form).then(function (response) {
+                console.log(response);
                 vm.$router.push({
-                    path: '/'
+                    path: '/dashboard'
                 });
             }).catch(function (error) {
-                console.log();
+                console.log(error);
                 _this.message = {
                     type: 'danger',
                     message: error.response.data,
                     trigger: !vm.message.trigger
                 };
             });
-        },
-        resetForm: function resetForm() {}
+        }
     },
     mounted: function mounted() {},
 
@@ -84375,7 +84375,6 @@ var render = function() {
           _vm._v(" "),
           _c(
             "b-form",
-            { on: { submit: _vm.submitForm, reset: _vm.resetForm } },
             [
               _c(
                 "b-form-group",
@@ -84437,7 +84436,10 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "b-button",
-                { attrs: { type: "submit", variant: "primary" } },
+                {
+                  attrs: { variant: "primary" },
+                  on: { click: _vm.submitForm }
+                },
                 [_vm._v("Login")]
               )
             ],
@@ -84974,7 +84976,6 @@ var render = function() {
           _vm._v(" "),
           _c(
             "b-form",
-            { on: { submit: _vm.submitForm } },
             [
               _c("b-form-textarea", {
                 attrs: {
@@ -84997,7 +84998,10 @@ var render = function() {
                 [
                   _c(
                     "b-button",
-                    { attrs: { type: "submit", size: "", variant: "success" } },
+                    {
+                      attrs: { size: "", variant: "success" },
+                      on: { click: _vm.submitForm }
+                    },
                     [_vm._v("\n                Post\n            ")]
                   )
                 ],
@@ -86274,11 +86278,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
             axios.post('/register', vm.form).then(function (response) {
                 vm.$router.push({
-                    path: '/login',
-                    params: {
-                        message: 'User successfully created.'
-                    }
-                });
+                    path: '/login' });
             }).catch(function (error) {
                 vm.message = {
                     type: 'danger',
@@ -86479,7 +86479,10 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "b-button",
-                { attrs: { type: "submit", variant: "primary" } },
+                {
+                  attrs: { variant: "primary" },
+                  on: { click: _vm.submitForm }
+                },
                 [_vm._v("Submit")]
               )
             ],

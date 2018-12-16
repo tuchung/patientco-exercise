@@ -3,7 +3,7 @@
         <b-container class='login-container'>
         <alert v-bind="message"></alert>    
         <h1><b-badge variant="info">Welcome</b-badge></h1>    
-        <b-form @submit="submitForm" @reset="resetForm">
+        <b-form>
         <b-form-group id="login-email-group"
                         label="Email address:"
                         label-for="login-email">
@@ -24,7 +24,7 @@
                         placeholder="Enter password">
             </b-form-input>
         </b-form-group>
-        <b-button type="submit" variant="primary">Login</b-button>
+        <b-button @click="submitForm" variant="primary">Login</b-button>
         </b-form>
         </b-container>
 
@@ -58,21 +58,19 @@
                 let vm = this; 
                 axios.post('/login',vm.form)
                 .then(function(response) {
+                    console.log(response);
                     vm.$router.push({
-                        path:'/'
+                        path: '/dashboard'
                     });
                 })
                 .catch(error =>  {
-                    console.log()
+                    console.log(error);
                     this.message = {
                         type : 'danger',
                         message : error.response.data,
                         trigger: !vm.message.trigger
                     }
                 });    
-            },
-            resetForm(){
-
             }
         },
         mounted() {

@@ -3,7 +3,7 @@
         <alert v-bind="message"></alert>  
         <div class="new-post">
             <h4><b-badge variant="info" no-resize=true>Post New Message</b-badge></h4>
-            <b-form @submit="submitForm">
+            <b-form>
             <b-form-textarea
                         v-model="form.message"
                         placeholder="Share what on your mind.."
@@ -11,7 +11,7 @@
                         :max-rows="6">
             </b-form-textarea>
             <div class="post-button">
-                <b-button type="submit"  size="" variant="success">
+                <b-button @click="submitForm"  size="" variant="success">
                     Post
                 </b-button>
             </div>
