@@ -10,9 +10,37 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Http\Middleware\CheckLogin;
 Route::get('/', function () {
     return view('main');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::post('/register', 'Auth\RegisterController@register')->middleware(App\Http\Middleware\CheckEmailAvailability::class);
+Route::get('/authenticate', 'Auth\AuthenticateController@checkLogin')->middleware(CheckLogin::class);
+
+Route::post('/post_new', 'PostsController@newPost')->middleware(CheckLogin::class);
+Route::get('/posts', 'PostsController@getPosts')->middleware(CheckLogin::class);
+Route::put('/posts/update', 'PostsController@updatePost')->middleware(CheckLogin::class);
+Route::post('/posts/delete', 'PostsController@deletePost')->middleware(CheckLogin::class);
+
+Auth::routes();
+
+//all defined auth routes
+// $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+// $this->post('login', 'Auth\LoginController@login');
+// $this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// // Registration Routes...
+// $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+// $this->post('register', 'Auth\RegisterController@register');
+
+// // Password Reset Routes...
+// $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+// $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+// $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+// $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
+
