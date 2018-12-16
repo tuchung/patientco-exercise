@@ -58,7 +58,7 @@
                 confirm_message: "",
                 delete_id: 0,
                 message: {
-                    
+                    trigger: false
                 },
                 page: 1,
                 num_page: 0
@@ -80,10 +80,10 @@
                     vm.num_page = response.data.pages;
                 })
                 .catch(function (error) {
-                    vm.error_message = {
+                    vm.message = {
                         type: "danger",
                         message: error,
-                        active: true
+                        trigger: !vm.message.trigger
                     }
                 }); 
             },
@@ -94,7 +94,7 @@
                     vm.message = {
                         type: "success",
                         message: "Post Deleted.",
-                        active: true
+                        trigger: !vm.message.trigger
                     }
                     vm.loadPost();
                 })
@@ -102,7 +102,7 @@
                     vm.message = {
                         type: "danger",
                         message: error,
-                        active: true
+                        trigger: !vm.message.trigger
                     }
                 }); 
             },

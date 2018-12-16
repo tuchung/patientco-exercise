@@ -42,11 +42,10 @@
 
     export default {
         Name: 'Login',
-        props: ['error_message'],
         data() {
            return {
                message: {
-
+                    trigger: false
                },
                form: {
                    email: '',
@@ -64,10 +63,11 @@
                     });
                 })
                 .catch(error =>  {
+                    console.log()
                     this.message = {
                         type : 'danger',
                         message : error.response.data,
-                        active : true
+                        trigger: !vm.message.trigger
                     }
                 });    
             },

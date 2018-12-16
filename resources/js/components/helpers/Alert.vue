@@ -15,7 +15,7 @@
 export default {
     name: "alert",
     props: [
-        "message", "type", "active"
+        "message", "type", "trigger"
     ],
     data () {
         return {  
@@ -29,15 +29,10 @@ export default {
         }
     },
     mounted: function(){
-        if(this.active){
-            this.dismissCountDown = 5;    
-        }
     },
     watch: {
-        active: function(newVal, oldVal){
-            if(this.active){
+        trigger: function(newVal, oldVal){
                 this.dismissCountDown = 5;    
-            }
         }
     } 
 }

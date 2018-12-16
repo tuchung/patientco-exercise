@@ -28,11 +28,8 @@
         Name: 'Dashboard',
         data() {
             return {
-                error_message: {
-
-                },
                 message: {
-
+                    trigger: false
                 },
                 form: {
                     message: ""
@@ -47,17 +44,17 @@
                     vm.message = {
                         type: "success",
                         message: "Message posted.",
-                        active: true
+                        trigger: !vm.message.trigger
                     }
                     vm.reloadPosts();
 
                     vm.form.message = "";
                 })
                 .catch(function (error) {
-                    vm.error_message = {
+                    vm.message = {
                         type: "danger",
                         message: "Message posted.",
-                        active: true
+                        trigger: !vm.message.trigger
                     }
                 });    
             },

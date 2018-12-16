@@ -84226,10 +84226,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     Name: 'Login',
-    props: ['error_message'],
     data: function data() {
         return {
-            message: {},
+            message: {
+                trigger: false
+            },
             form: {
                 email: '',
                 password: ''
@@ -84247,10 +84248,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     path: '/'
                 });
             }).catch(function (error) {
+                console.log();
                 _this.message = {
                     type: 'danger',
                     message: error.response.data,
-                    active: true
+                    trigger: !vm.message.trigger
                 };
             });
         },
@@ -84283,7 +84285,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "alert",
-    props: ["message", "type", "active"],
+    props: ["message", "type", "trigger"],
     data: function data() {
         return {
             dismissSecs: 5,
@@ -84296,16 +84298,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.dismissCountDown = dismissCountDown;
         }
     },
-    mounted: function mounted() {
-        if (this.active) {
-            this.dismissCountDown = 5;
-        }
-    },
+    mounted: function mounted() {},
     watch: {
-        active: function active(newVal, oldVal) {
-            if (this.active) {
-                this.dismissCountDown = 5;
-            }
+        trigger: function trigger(newVal, oldVal) {
+            this.dismissCountDown = 5;
         }
     }
 });
@@ -84678,7 +84674,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            message: {}
+            message: {
+                trigger: false
+            }
         };
     },
 
@@ -84694,7 +84692,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 vm.message = {
                     type: 'danger',
                     message: error,
-                    active: true
+                    trigger: !vm.message.trigger
                 };
             });
         }
@@ -84907,8 +84905,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     Name: 'Dashboard',
     data: function data() {
         return {
-            error_message: {},
-            message: {},
+            message: {
+                trigger: false
+            },
             form: {
                 message: ""
             }
@@ -84922,16 +84921,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 vm.message = {
                     type: "success",
                     message: "Message posted.",
-                    active: true
+                    trigger: !vm.message.trigger
                 };
                 vm.reloadPosts();
 
                 vm.form.message = "";
             }).catch(function (error) {
-                vm.error_message = {
+                vm.message = {
                     type: "danger",
                     message: "Message posted.",
-                    active: true
+                    trigger: !vm.message.trigger
                 };
             });
         },
@@ -85190,7 +85189,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             confirm_trigger: false,
             confirm_message: "",
             delete_id: 0,
-            message: {},
+            message: {
+                trigger: false
+            },
             page: 1,
             num_page: 0
         };
@@ -85210,10 +85211,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 vm.posts = response.data.records;
                 vm.num_page = response.data.pages;
             }).catch(function (error) {
-                vm.error_message = {
+                vm.message = {
                     type: "danger",
                     message: error,
-                    active: true
+                    trigger: !vm.message.trigger
                 };
             });
         },
@@ -85223,14 +85224,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 vm.message = {
                     type: "success",
                     message: "Post Deleted.",
-                    active: true
+                    trigger: !vm.message.trigger
                 };
                 vm.loadPost();
             }).catch(function (error) {
                 vm.message = {
                     type: "danger",
                     message: error,
-                    active: true
+                    trigger: !vm.message.trigger
                 };
             });
         },
@@ -86237,7 +86238,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     Name: 'Login',
     data: function data() {
         return {
-            error_message: {},
+            message: {
+                trigger: false
+            },
             options: {
                 format: 'MM/DD/YYYY',
                 useCurrent: false
@@ -86255,10 +86258,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         confirmPassword: function confirmPassword() {
             if (this.form.password !== this.form.password_confirm) {
-                this.error_message = {
+                this.message = {
                     type: 'danger',
                     message: 'Passwords does not match. Please try again.',
-                    active: true
+                    trigger: !vm.message.trigger
                 };
                 return false;
             }
@@ -86277,7 +86280,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     }
                 });
             }).catch(function (error) {
-                vm.error_message = {
+                vm.message = {
                     type: 'danger',
                     message: error.response.data,
                     active: true
@@ -86306,7 +86309,7 @@ var render = function() {
         "b-container",
         { staticClass: "login-container" },
         [
-          _c("alert", _vm._b({}, "alert", _vm.error_message, false)),
+          _c("alert", _vm._b({}, "alert", _vm.message, false)),
           _vm._v(" "),
           _c(
             "h1",

@@ -34,7 +34,7 @@
         data(){
             return {
                 message : {
-
+                    trigger: false
                 }
             }
         },
@@ -52,7 +52,7 @@
                     vm.message = {
                         type: 'danger',
                         message: error,
-                        active: true
+                        trigger: !vm.message.trigger
                     }
                 });    
            }     

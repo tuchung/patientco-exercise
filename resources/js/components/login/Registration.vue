@@ -1,7 +1,7 @@
 <template>
     <div>    
         <b-container class='login-container'>
-        <alert v-bind="error_message"></alert>    
+        <alert v-bind="message"></alert>    
         <h1><b-badge variant="primary">Register New Account</b-badge></h1>    
         <b-form @submit="submitForm" @reset="resetForm">
 
@@ -76,8 +76,8 @@
         Name: 'Login',
         data() {
            return {
-               error_message: {
-
+               message: {
+                    trigger: false
                },
                options: {
                    format: 'MM/DD/YYYY',
@@ -95,10 +95,10 @@
         methods: {
             confirmPassword(){
                 if(this.form.password !== this.form.password_confirm){
-                    this.error_message = {
+                    this.message = {
                         type : 'danger',
                         message : 'Passwords does not match. Please try again.',
-                        active : true
+                        trigger: !vm.message.trigger
                     }
                     return false;
                 }
@@ -119,7 +119,7 @@
                         });
                 })
                 .catch(error => {
-                    vm.error_message = {
+                    vm.message = {
                         type : 'danger',
                         message : error.response.data,
                         active : true

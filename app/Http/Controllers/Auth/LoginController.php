@@ -22,11 +22,11 @@ class LoginController extends Controller
             
             session(['email' => $model->email]);
             session(['user_id' => $model->id]);
+            return response('success', 200);
 
         }catch(\Exception $e){
             return response($e, 500);
         }
-        return response('success', 200);
     }
 
     public function logout(Request $request)
